@@ -1,0 +1,13 @@
+node_modules
+yarn-error.log
+config/*.env
+database
+config/local*
+epubcheck_data/*
+epubcheck_log/*
+epubchecker_data/*
+epubchecker_log/*
+logs/*
+tmp/
+uploads/*
+.env.*
