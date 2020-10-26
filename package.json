@@ -1,11 +1,14 @@
 {
-  "name": "@coko/epubchecker",
+  "name": "@coko/epub-checker",
   "version": "1.0.0",
   "description": "Service that returns the validity of an EPUB",
   "main": "src/index.js",
   "scripts": {
     "cz": "git-cz",
+    "migrate": "pubsweet migrate",
+    "server": "pubsweet start:server",
     "release": "standard-version",
+    "create:client": "node ./node_modules/@coko/service-auth/src/bin/createClient.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +27,8 @@
   },
   "dependencies": {
     "@coko/server": "^1.3.0",
-    "epubchecker": "^4.2.2"
+    "epubchecker": "^4.2.2",
+    "winston": "2"
   },
   "devDependencies": {
     "@coko/lint": "^0.0.2",
