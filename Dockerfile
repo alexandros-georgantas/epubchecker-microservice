@@ -18,4 +18,4 @@ COPY --chown=node:node . .
 RUN chmod +x ./scripts/startServer.sh
 RUN chmod +x ./scripts/wait-for-postgres.sh
 
-CMD yarn server
+ENTRYPOINT . scripts/startServer.sh

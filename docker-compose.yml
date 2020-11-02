@@ -19,7 +19,6 @@ services:
       - POSTGRES_PORT=5432
       - SERVER_PORT=3000
       - NODE_ENV=${NODE_ENV:-development}
-    entrypoint: './scripts/startServer.sh'
   db:
     image: postgres:10-alpine
     restart: always
@@ -30,5 +29,3 @@ services:
       - POSTGRES_DB
       - POSTGRES_PASSWORD
       - POSTGRES_PORT
-    volumes:
-      - ./database/data:/var/lib/postgresql/data
