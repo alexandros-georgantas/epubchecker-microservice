@@ -2,5 +2,4 @@
 const { app } = require('@coko/server')
 
 // You can modify the app or ensure other things are imported here
-
 module.exports = app

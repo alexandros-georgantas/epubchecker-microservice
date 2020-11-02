@@ -9,5 +9,6 @@ epubchecker_data/*
 epubchecker_log/*
 logs/*
 tmp/
+temp/
 uploads/*
 .env.*

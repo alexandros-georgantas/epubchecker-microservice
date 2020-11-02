@@ -1,1 +1,5 @@
-["@coko/service-auth", "@coko/service-auth/src/models/client"]
+[
+  "@coko/service-auth",
+  "@coko/service-auth/src/models/service-client",
+  "./server/"
+]

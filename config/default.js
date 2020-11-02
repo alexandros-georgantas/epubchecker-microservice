@@ -23,10 +23,7 @@ module.exports = {
     db: {},
     logger,
     port: 3000,
-    uploads: 'uploads',
-    app: path.resolve(__dirname, '..', 'app.js'),
-    enableExperimentalGraphql: false,
-    graphiql: false,
+    useGraphQLServer: false,
     pool: { min: 0, max: 10, idleTimeoutMillis: 1000 },
   },
 }
