@@ -1,4 +1,4 @@
 #!/bin/bash
-set -x
 
-yarn migrate && yarn server
+./node_modules/.bin/pubsweet migrate
+./node_modules/.bin/pubsweet start:server
