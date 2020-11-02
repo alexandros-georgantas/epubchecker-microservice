@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  epub-checker:
+  server:
     depends_on:
       - "db"
     build: 
@@ -9,7 +9,7 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     ports: 
-      - ${SERVER_PORT:-3050}:3000
+      - ${SERVER_PORT:-3000}:3000
     environment:
       - PUBSWEET_SECRET=${PUBSWEET_SECRET:-dev_secret}
       - POSTGRES_USER=${POSTGRES_USER:-dev}
@@ -29,3 +29,5 @@ services:
       - POSTGRES_DB
       - POSTGRES_PASSWORD
       - POSTGRES_PORT
+    # volumes:
+    #   - ./database/data:/var/lib/postgresql/data
