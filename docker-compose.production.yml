@@ -10,10 +10,11 @@ services:
       - ${SERVER_PORT:-3050}:3000
     environment:
       - PUBSWEET_SECRET=${PUBSWEET_SECRET:-dev_secret}
-      - POSTGRES_USER=${POSTGRES_USER:-dev}
+      - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}
       - POSTGRES_HOST=${POSTGRES_HOST:-localhost}
-      - POSTGRES_DB=${POSTGRES_DB:-editoria_dev}
+      - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
       - POSTGRES_PORT=${POSTGRES_PORT:-5432}
       - SERVER_PORT=3000
       - NODE_ENV=${NODE_ENV:-production}
+      - WAIT_SERVICE_PORT=${POSTGRES_HOST:-localhost}:${POSTGRES_PORT:-5432}

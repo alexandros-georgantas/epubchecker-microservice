@@ -6,7 +6,6 @@ const { uploadHandler } = require('./helpers')
 
 const epubChecker = async (req, res) => {
   try {
-    // console.log(req.header('host'))
     if (req.fileValidationError) {
       return res.status(400).json({ msg: req.fileValidationError })
     }
@@ -25,15 +24,15 @@ const epubChecker = async (req, res) => {
       messages,
     } = report
 
-    let errorMsg
+    let errors
+
     if (nError > 0) {
-      errorMsg = messages.map(msg => msg.message).join(' * ')
+      errors = messages.map(msg => msg.message)
     }
-    const result = {}
-    Object.assign(result, errorMsg ? { error: errorMsg } : { validation: 'ok' })
 
     return res.status(200).json({
-      data: result,
+      outcome: errors ? 'not valid' : 'ok',
+      errors,
     })
   } catch (e) {
     throw new Error(e)

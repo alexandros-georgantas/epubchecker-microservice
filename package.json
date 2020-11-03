@@ -2,7 +2,7 @@
   "name": "@coko/epub-checker",
   "version": "1.0.0",
   "description": "Service that returns the validity of an EPUB",
-  "main": "src/index.js",
+  "main": "server/index.js",
   "scripts": {
     "cz": "git-cz",
     "migrate": "pubsweet migrate",
@@ -28,10 +28,12 @@
   "dependencies": {
     "@coko/server": "^1.4.1",
     "@coko/service-auth": "^1.1.1",
+    "config": "^3.3.2",
     "epubchecker": "^4.2.2",
     "fs-extra": "^9.0.1",
     "multer": "^1.4.2",
-    "winston": "2"
+    "winston": "2",
+    "winston-daily-rotate-file": "^3.2.1"
   },
   "devDependencies": {
     "@coko/lint": "^0.0.2",
