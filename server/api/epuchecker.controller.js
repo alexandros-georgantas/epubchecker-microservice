@@ -1,4 +1,5 @@
 // const logger = require('@pubsweet/logger')
+const fs = require('fs-extra')
 const { authenticate } = require('@coko/service-auth')
 const epubchecker = require('epubchecker')
 
@@ -29,7 +30,7 @@ const epubChecker = async (req, res) => {
     if (nError > 0) {
       errors = messages.map(msg => msg.message)
     }
-
+    await fs.remove(filePath)
     return res.status(200).json({
       outcome: errors ? 'not valid' : 'ok',
       errors,
@@ -40,7 +41,7 @@ const epubChecker = async (req, res) => {
 }
 
 const EPUBCheckerBackend = app => {
-  app.post('/api/test', authenticate, uploadHandler, epubChecker)
+  app.post('/api/epubchecker', authenticate, uploadHandler, epubChecker)
 }
 
 module.exports = EPUBCheckerBackend
