@@ -10,4 +10,6 @@ module.exports = {
     },
     port: 'SERVER_PORT',
   },
+  clientId: 'CLIENT_ID',
+  clientSecret: 'CLIENT_SECRET',
 }

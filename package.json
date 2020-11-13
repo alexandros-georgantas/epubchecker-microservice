@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@coko/server": "^1.4.1",
-    "@coko/service-auth": "^1.1.1",
+    "@coko/service-auth": "^1.1.3",
     "config": "^3.3.2",
     "epubchecker": "^4.2.2",
     "fs-extra": "^9.0.1",
