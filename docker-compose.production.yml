@@ -4,7 +4,7 @@ services:
   epub-checker:
     build: 
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile.production
     restart: always
     ports: 
       - ${SERVER_PORT:-3050}:3000

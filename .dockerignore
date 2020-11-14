@@ -1,4 +1,5 @@
 database
+node_moduless
 temp
 .*
 config/*.env
