@@ -15,9 +15,9 @@ const epubChecker = async (req, res) => {
     }
     const { path: filePath } = req.file
     const report = await epubchecker(filePath, {
-      includeWarnings: false,
-      // do not check CSS and font files
-      exclude: /\.(css|ttf|opf|woff|woff2)$/,
+      includeWarnings: true,
+      // do not check font files
+      exclude: /\.(ttf|opf|woff|woff2)$/,
     })
 
     const {
@@ -25,15 +25,10 @@ const epubChecker = async (req, res) => {
       messages,
     } = report
 
-    let errors
-
-    if (nError > 0) {
-      errors = messages.map(msg => msg.message)
-    }
     await fs.remove(filePath)
     return res.status(200).json({
-      outcome: errors ? 'not valid' : 'ok',
-      errors,
+      outcome: nError > 0 ? 'not valid' : 'ok',
+      messages,
     })
   } catch (e) {
     throw new Error(e)
