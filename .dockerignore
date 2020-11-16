@@ -7,4 +7,5 @@ config/*.env
 docker-compose.yml
 docker-compose.*.yml
 Dockerfile
+logs
 *.log

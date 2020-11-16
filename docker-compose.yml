@@ -7,7 +7,6 @@ services:
     build: 
       context: .
       dockerfile: ./Dockerfile.development
-    # restart: always
     ports: 
       - ${SERVER_PORT:-3000}:3000
     environment:
@@ -32,7 +31,7 @@ services:
     command:
       [
         'node_modules/.bin/nodemon',
-        'startServer.js',
+        './server/startServer.js',
         '--watch',
         'server',
         '--watch',
@@ -42,6 +41,7 @@ services:
       ]
     volumes:
       - ./server:/home/node/epub-checker/server
+      - ./config:/home/node/epub-checker/config
 
   db:
     image: postgres:12-alpine

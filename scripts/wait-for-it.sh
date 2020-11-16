@@ -1,5 +1,4 @@
 #!/bin/sh
-set -x
 TIMEOUT=15
 QUIET=0
 
