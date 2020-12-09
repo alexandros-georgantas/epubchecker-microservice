@@ -1,5 +1,5 @@
-const epubCheckerEndpoint = require('./api')
+const backend = require('./api')
 
 module.exports = {
-  server: () => app => epubCheckerEndpoint(app),
+  server: () => app => backend(app),
 }

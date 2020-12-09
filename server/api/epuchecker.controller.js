@@ -1,9 +1,5 @@
-// const logger = require('@pubsweet/logger')
 const fs = require('fs-extra')
-const { authenticate } = require('@coko/service-auth')
 const epubchecker = require('epubchecker')
-
-const { uploadHandler } = require('./helpers')
 
 const epubChecker = async (req, res) => {
   try {
@@ -35,8 +31,4 @@ const epubChecker = async (req, res) => {
   }
 }
 
-const EPUBCheckerBackend = app => {
-  app.post('/api/epubchecker', authenticate, uploadHandler, epubChecker)
-}
-
-module.exports = EPUBCheckerBackend
+module.exports = epubChecker
