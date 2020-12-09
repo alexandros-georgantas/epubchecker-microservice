@@ -26,19 +26,20 @@
     "access": "public"
   },
   "dependencies": {
-    "@coko/server": "^1.5.0",
+    "@coko/server": "^1.8.0",
     "@coko/service-auth": "^1.1.5",
     "config": "^3.3.2",
     "epubchecker": "^4.2.2",
     "fs-extra": "^9.0.1",
     "multer": "^1.4.2",
+    "node-wait-for-it": "^0.2.0",
     "winston": "2",
     "winston-daily-rotate-file": "^3.2.1"
   },
   "devDependencies": {
     "@coko/lint": "^0.0.2",
-    "standard-version": "^7.1.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "standard-version": "^7.1.0"
   },
   "config": {
     "commitizen": {

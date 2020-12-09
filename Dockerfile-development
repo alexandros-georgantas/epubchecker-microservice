@@ -1,0 +1,21 @@
+FROM node:12
+RUN apt-get update \ 
+    && apt-get upgrade -y \
+    && apt-get install -y ranger vim unzip software-properties-common
+
+RUN add-apt-repository 'deb http://http.debian.net/debian stretch-backports main' \
+    && apt-get update \
+    && apt-get install -y openjdk-11-jre-headless
+
+WORKDIR /home/node/epub-checker
+
+RUN chown -R node:node /home/node/epub-checker
+
+USER node
+
+COPY --chown=node:node package.json ./package.json
+COPY --chown=node:node yarn.lock ./yarn.lock
+
+RUN yarn
+
+COPY --chown=node:node . .
