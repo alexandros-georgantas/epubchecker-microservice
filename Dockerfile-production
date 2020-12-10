@@ -15,4 +15,6 @@ RUN yarn
 
 COPY --chown=node:node . .
 
-ENTRYPOINT . scripts/startServer.sh
+ENTRYPOINT ["sh", "./scripts/setupProdServer.sh"]
+
+CMD ["node", "./server/startServer.js"]
