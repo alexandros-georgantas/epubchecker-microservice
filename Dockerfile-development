@@ -1,11 +1,6 @@
-FROM node:12
-RUN apt-get update \ 
-    && apt-get upgrade -y \
-    && apt-get install -y ranger vim unzip software-properties-common
+FROM node:12-alpine
 
-RUN add-apt-repository 'deb http://http.debian.net/debian stretch-backports main' \
-    && apt-get update \
-    && apt-get install -y openjdk-11-jre-headless
+RUN apk update && apk add --no-cache ranger vim bash coreutils unzip openjdk11-jre-headless git
 
 WORKDIR /home/node/epub-checker
 
