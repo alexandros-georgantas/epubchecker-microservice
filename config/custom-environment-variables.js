@@ -12,6 +12,4 @@ module.exports = {
     port: 'SERVER_PORT',
     protocol: 'SERVER_PROTOCOL',
   },
-  clientId: 'CLIENT_ID',
-  clientSecret: 'CLIENT_SECRET',
 }
