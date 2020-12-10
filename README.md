@@ -73,7 +73,6 @@ POSTGRES_DB (required for connection to the db)
 POSTGRES_PORT (required for connection to the db)
 SERVER_PORT (port where the server will be exposed)
 NODE_ENV (development or production)
-WAIT_SERVICE_PORT (e.g. localhost:5432)
 ```
 
 All the above are required
