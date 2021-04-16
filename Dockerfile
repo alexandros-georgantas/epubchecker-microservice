@@ -1,6 +1,6 @@
 FROM node:12-alpine
 
-RUN apk update && apk add --no-cache unzip openjdk11-jre-headless git
+RUN apk update && apk add --no-cache git bash unzip openjdk11-jre-headless
 
 WORKDIR /home/node/epub-checker
 
