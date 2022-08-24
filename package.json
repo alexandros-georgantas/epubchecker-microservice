@@ -1,6 +1,6 @@
 {
   "name": "@coko/epub-checker",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Service that returns the validity of an EPUB",
   "main": "server/index.js",
   "scripts": {
@@ -26,14 +26,13 @@
     "access": "public"
   },
   "dependencies": {
-    "@coko/server": "^1.13.0",
+    "@coko/server": "2.0.0-beta.1",
     "@coko/service-auth": "^1.1.7",
     "axios": "^0.21.1",
     "config": "^3.3.2",
     "epubchecker": "^4.2.2",
     "fs-extra": "^9.0.1",
     "multer": "^1.4.2",
-    "node-wait-for-it": "^0.2.0",
     "winston": "2"
   },
   "devDependencies": {

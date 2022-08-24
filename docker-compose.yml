@@ -16,13 +16,14 @@ services:
       - SERVER_PROTOCOL=${SERVER_PROTOCOL:-http}
       - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}
-      - POSTGRES_HOST=db
+      - POSTGRES_HOST=${POSTGRES_PORT:-db}
       - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
-      - POSTGRES_PORT=5432
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
       - NODE_ENV=development
     entrypoint:
       [
-        'node_modules/.bin/wait-for-it',
+        'sh',
+        'scripts/wait-for-it',
         'db:5432',
         '--',
         'sh',
@@ -44,12 +45,12 @@ services:
       - ./config:/home/node/epub-checker/config
 
   db:
-    image: postgres:12-alpine
+    image: postgres:14-alpine
     ports:
       - ${POSTGRES_PORT:-5432}:5432
     environment:
-      - POSTGRES_USER
-      - POSTGRES_DB
-      - POSTGRES_PASSWORD
+      - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
+      - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}
     volumes:
       - ./scripts/init-pgboss.sql:/docker-entrypoint-initdb.d/init-pgboss.sql

@@ -1,15 +1,22 @@
 const fs = require('fs-extra')
 const epubchecker = require('epubchecker')
+const { logger } = require('@coko/server')
 
 const epubChecker = async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ msg: 'EPUB file is not included' })
+  }
+  if (req.fileValidationError) {
+    return res.status(400).json({ msg: req.fileValidationError })
+  }
+  const { path: filePath } = req.file
+  req.on('error', async err => {
+    logger.error(err.message)
+    return fs.remove(filePath)
+  })
+
   try {
-    if (req.fileValidationError) {
-      return res.status(400).json({ msg: req.fileValidationError })
-    }
-    if (!req.file) {
-      return res.status(400).json({ msg: 'EPUB file is not included' })
-    }
-    const { path: filePath } = req.file
+    logger.info(`running EPUB through checker`)
     const report = await epubchecker(filePath, {
       includeWarnings: true,
       // do not check font files
@@ -20,14 +27,16 @@ const epubChecker = async (req, res) => {
       checker: { nError },
       messages,
     } = report
-
-    await fs.remove(filePath)
+    logger.info(`sending back the report`)
     return res.status(200).json({
       outcome: nError > 0 ? 'not valid' : 'ok',
       messages,
     })
   } catch (e) {
     throw new Error(e)
+  } finally {
+    logger.info(`cleaning up temp path ${filePath}`)
+    fs.remove(filePath)
   }
 }
 

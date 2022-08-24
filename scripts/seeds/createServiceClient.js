@@ -21,6 +21,7 @@ const main = async () => {
       return true
     }
     logger.info('already exists')
+    return false
   } catch (e) {
     throw new Error(e)
   }
