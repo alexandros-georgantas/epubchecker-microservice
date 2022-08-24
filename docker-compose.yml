@@ -16,7 +16,7 @@ services:
       - SERVER_PROTOCOL=${SERVER_PROTOCOL:-http}
       - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}
-      - POSTGRES_HOST=${POSTGRES_PORT:-db}
+      - POSTGRES_HOST=${POSTGRES_HOST:-db}
       - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
       - POSTGRES_PORT=${POSTGRES_PORT:-5432}
       - NODE_ENV=development
