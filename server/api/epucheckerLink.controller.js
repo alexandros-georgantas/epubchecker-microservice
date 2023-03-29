@@ -35,6 +35,7 @@ const epubChecker = async (req, res) => {
   if (!objectKey) {
     return res.status(404).json({ message: 'no EPUB URL provided' })
   }
+
   const epubDir = `${process.cwd()}/temp`
   await fs.ensureDir(epubDir)
   const epubPath = path.join(epubDir, `${objectKey}`)
@@ -49,6 +50,7 @@ const epubChecker = async (req, res) => {
       `downloading EPUB from remote storage ${EPUBPath} to local folder ${epubPath}`,
     )
     await downloadEpub(EPUBPath, epubPath)
+
     logger.info(`running it through checker`)
     const report = await epubchecker(epubPath, {
       includeWarnings: true,
