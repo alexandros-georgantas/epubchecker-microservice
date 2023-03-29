@@ -1,6 +1,6 @@
 {
   "name": "@coko/epub-checker",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Service that returns the validity of an EPUB",
   "main": "server/index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "@coko/service-auth": "^1.1.7",
     "axios": "^0.21.1",
     "config": "^3.3.2",
-    "epubchecker": "^4.2.2",
+    "epubchecker": "^5.0.0",
     "fs-extra": "^9.0.1",
     "multer": "^1.4.2",
     "winston": "2"
