@@ -35,13 +35,12 @@ const epubChecker = async (req, res) => {
   if (!objectKey) {
     return res.status(404).json({ message: 'no EPUB URL provided' })
   }
-  console.log('1')
+
   const epubDir = `${process.cwd()}/temp`
   await fs.ensureDir(epubDir)
   const epubPath = path.join(epubDir, `${objectKey}`)
 
   req.on('error', async err => {
-    console.log('error', err)
     logger.error(err.message)
     return fs.remove(epubPath)
   })
@@ -51,14 +50,13 @@ const epubChecker = async (req, res) => {
       `downloading EPUB from remote storage ${EPUBPath} to local folder ${epubPath}`,
     )
     await downloadEpub(EPUBPath, epubPath)
-    console.log('2')
+
     logger.info(`running it through checker`)
     const report = await epubchecker(epubPath, {
       includeWarnings: true,
       // do not check font files
       exclude: /\.(ttf|opf|woff|woff2)$/,
     })
-    console.log('3', report)
 
     const {
       checker: { nError },
