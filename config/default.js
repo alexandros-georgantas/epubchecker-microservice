@@ -1,6 +1,8 @@
 const winston = require('winston')
 const path = require('path')
+/* eslint-disable import/extensions */
 const components = require('./components')
+/* eslint-enable import/extensions */
 
 const logger = new winston.Logger({
   transports: [
@@ -20,6 +22,15 @@ module.exports = {
   publicKeys: ['pubsweet', 'pubsweet-server'],
   pubsweet: {
     components,
+  },
+  teams: {
+    global: {
+      admin: {
+        displayName: 'Admin',
+        role: 'admin',
+      },
+    },
+    nonGlobal: {},
   },
   'pubsweet-server': {
     db: {},

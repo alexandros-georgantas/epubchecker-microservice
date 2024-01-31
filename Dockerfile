@@ -1,4 +1,4 @@
-FROM node:16.16.0-alpine3.16
+FROM node:20.0.0-alpine3.16
 
 RUN apk update && apk add --no-cache git bash unzip openjdk11-jre-headless
 

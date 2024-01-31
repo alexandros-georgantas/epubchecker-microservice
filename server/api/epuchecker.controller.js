@@ -28,6 +28,7 @@ const epubChecker = async (req, res) => {
       messages,
     } = report
     logger.info(`sending back the report`)
+
     return res.status(200).json({
       outcome: nError > 0 ? 'not valid' : 'ok',
       messages,
