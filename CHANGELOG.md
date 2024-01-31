@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v1.1.0...v1.2.1) (2024-01-31)
+
+
+### Bug Fixes
+
+* typo in compose dev ([0a58996](https://gitlab.coko.foundation/cokoapps/epub-checker/commit/0a58996eca0f20ff495a818f98158f99c5a379a3))
+* **service:** fixes and node 16 ([32ec70a](https://gitlab.coko.foundation/cokoapps/epub-checker/commit/32ec70afb4b474dd4cb25fa004e1ac153c8b1700))
+
 ## 1.1.0 (2021-04-16)
 
 

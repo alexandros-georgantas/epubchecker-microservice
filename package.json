@@ -1,6 +1,6 @@
 {
   "name": "@coko/epub-checker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Service that returns the validity of an EPUB",
   "main": "server/index.js",
   "scripts": {
